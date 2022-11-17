@@ -1,10 +1,9 @@
 #doing that evening planner thing
 
 from random import choice
-from random import randrange
 import requests
 import json
-import time
+import pandas as pd
 
 #do the list
 #games = ['FFXIV', 'Tekken', 'GGST', 'Pathfinder', 'SFV', 'Rimworld', 'Hunt: Showdown']
@@ -24,6 +23,10 @@ games = [['FFXIV', 'mumorpeger', 'Tank'],
     ['Kenshi', 'CRPG', 'Continue'],
     ['Hunt', 'Dakka', 'Meta'],
     ['Hunt', 'Dakka', 'Cheapo']]
+
+games_df = pd.DataFrame(games, columns = ['Game', 'Genre','TODO'])
+print(games_df)
+
 
 #but what if i'm not THAT indecisive?
 print('any preferences?')
