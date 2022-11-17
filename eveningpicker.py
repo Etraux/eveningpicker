@@ -1,6 +1,7 @@
 #doing that evening planner thing
 
 from random import choice
+from jikanpy import Jikan
 
 #do the list
 #games = ['FFXIV', 'Tekken', 'GGST', 'Pathfinder', 'SFV', 'Rimworld', 'Hunt: Showdown']
@@ -26,5 +27,20 @@ print('any preferences?')
 mood = input()
 
 #print a random game
-nah = choice(games)
-print('you\'ll play ' + nah[0] + ' ' +nah[2])
+if mood == 'vidya' :
+    vidya = choice(games)
+    print('you\'ll play ' + vidya[0] + ' ' +vidya[2])
+#but what about anime?
+elif mood == 'animay':
+    jikan1 = Jikan()
+    animay = jikan1.search('anime', 'Jojo',
+    parameters={
+        'type': 'tv', 
+        'min_score': '8',
+        'max_score': '10', 
+        'status': 'complete', 
+        'limit': 5,
+        })   
+    for keys,values in animay.items():
+        print(keys)
+        print(values)
