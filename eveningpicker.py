@@ -1,7 +1,10 @@
 #doing that evening planner thing
 
 from random import choice
-from jikanpy import Jikan
+from random import randrange
+import requests
+import json
+import time
 
 #do the list
 #games = ['FFXIV', 'Tekken', 'GGST', 'Pathfinder', 'SFV', 'Rimworld', 'Hunt: Showdown']
@@ -32,15 +35,10 @@ if mood == 'vidya' :
     print('you\'ll play ' + vidya[0] + ' ' +vidya[2])
 #but what about anime?
 elif mood == 'animay':
-    jikan1 = Jikan()
-    animay = jikan1.search('anime', 'Jojo',
-    parameters={
-        'type': 'tv', 
-        'min_score': '8',
-        'max_score': '10', 
-        'status': 'complete', 
-        'limit': 5,
-        })   
-    for keys,values in animay.items():
-        print(keys)
-        print(values)
+    test = []
+    id = randrange(1, 5000)
+    page_url = f'https://api.jikan.moe/v4/anime/{id}'
+    response = requests.get(page_url)
+    json_data = json.loads(response.text)
+    test.append(json_data)
+    print (*test)
