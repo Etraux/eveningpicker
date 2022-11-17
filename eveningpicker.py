@@ -36,9 +36,9 @@ if mood == 'vidya' :
 #but what about anime?
 elif mood == 'animay':
     test = []
-    id = randrange(1, 5000)
-    page_url = f'https://api.jikan.moe/v4/anime/{id}'
+    page_url = f'https://api.jikan.moe/v4/random/anime'
     response = requests.get(page_url)
     json_data = json.loads(response.text)
     test.append(json_data)
     print (*test)
+    
